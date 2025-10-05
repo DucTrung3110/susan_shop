@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm - Susan Shop</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <h2>Susan Shop Admin</h2>
+            <ul class="admin-nav">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="categories.html">Danh mục</a></li>
+                <li><a href="products.html" class="active">Sản phẩm</a></li>
+                <li><a href="customers.html">Khách hàng</a></li>
+                <li><a href="orders.html">Đơn hàng</a></li>
+                <li><a href="../index.html">Về trang chủ</a></li>
+                <li><a href="#" id="logoutBtn">Đăng xuất</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>Quản lý sản phẩm</h1>
+                <button class="btn" id="addProductBtn">Thêm sản phẩm</button>
+            </div>
+
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Danh mục</th>
+                            <th>Số biến thể</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productList">
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Đang tải...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Thêm sản phẩm</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label>Danh mục</label>
+                    <select id="productCategory" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea id="productDetail"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>URL hình ảnh</label>
+                    <input type="text" id="productImage">
+                </div>
+                <div class="form-group">
+                    <label>Hoặc tải ảnh lên (tối đa 2MB)</label>
+                    <input type="file" id="productImageFile" accept="image/jpeg,image/jpg,image/png,image/webp">
+                    <small style="color: #666; font-size: 12px;">
+                        Chấp nhận: JPG, JPEG, PNG, WEBP. Kích thước tối đa: 2MB
+                    </small>
+                    <div id="imagePreview" style="margin-top: 10px; display: none;">
+                        <img id="previewImg" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; padding: 5px;">
+                    </div>
+                </div>
+                <button type="submit" class="btn">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/admin/products.js"></script>
+</body>
+</html>

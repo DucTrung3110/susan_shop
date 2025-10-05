@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Susan Shop</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Susan Shop</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="index.html#products">Sản phẩm</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <h2 style="text-align: center; margin-bottom: 30px;">Đăng nhập</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Đăng nhập</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">
+            Chưa có tài khoản? <a href="register.html" style="color: var(--primary-color);">Đăng ký ngay</a>
+        </p>
+    </div>
+
+    <script type="module">
+        import Auth from './scripts/auth.js';
+        import { showToast } from './scripts/utils.js';
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const result = await Auth.login(email, password);
+            if (result.success) {
+                showToast('Đăng nhập thành công!', 'success');
+                setTimeout(() => {
+                    window.location.href = result.user.role === 'admin' ? 'admin/index.html' : 'index.html';
+                }, 1000);
+            } else {
+                showToast(result.message, 'error');
+            }
+        });
+    </script>
+</body>
+</html>
