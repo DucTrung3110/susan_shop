@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Susan Shop</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <h2>Susan Shop Admin</h2>
+            <ul class="admin-nav">
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="categories.html">Danh mục</a></li>
+                <li><a href="products.html">Sản phẩm</a></li>
+                <li><a href="customers.html">Khách hàng</a></li>
+                <li><a href="orders.html">Đơn hàng</a></li>
+                <li><a href="../index.html">Về trang chủ</a></li>
+                <li><a href="#" id="logoutBtn">Đăng xuất</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Tổng sản phẩm đã bán</h3>
+                    <div class="value" id="totalProductsSold">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Tổng doanh thu</h3>
+                    <div class="value" id="totalRevenue">0đ</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Hàng tồn kho</h3>
+                    <div class="value" id="totalStock">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Đơn hàng mới</h3>
+                    <div class="value" id="newOrders">0</div>
+                </div>
+            </div>
+
+            <div class="data-table">
+                <h3 style="padding: 20px;">Đơn hàng gần đây</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrders">
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Đang tải...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../scripts/admin/dashboard.js"></script>
+</body>
+</html>

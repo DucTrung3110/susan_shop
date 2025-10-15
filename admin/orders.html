@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng - Susan Shop</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <h2>Susan Shop Admin</h2>
+            <ul class="admin-nav">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="categories.html">Danh mục</a></li>
+                <li><a href="products.html">Sản phẩm</a></li>
+                <li><a href="customers.html">Khách hàng</a></li>
+                <li><a href="orders.html" class="active">Đơn hàng</a></li>
+                <li><a href="../index.html">Về trang chủ</a></li>
+                <li><a href="#" id="logoutBtn">Đăng xuất</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>Quản lý đơn hàng</h1>
+            </div>
+
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderList">
+                        <tr>
+                            <td colspan="6" style="text-align: center;">Đang tải...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../scripts/admin/orders.js"></script>
+</body>
+</html>
